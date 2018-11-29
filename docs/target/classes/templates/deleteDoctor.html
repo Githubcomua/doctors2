@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>deleteDoctor</title>
+</head>
+<body>
+Запис видалено!
+<p></p>
+<div>
+    <a th:href="@{'/doctorList'}">
+        <button>Список лікарів</button>
+    </a>
+</div>
+
+<h1>Зробити новий запис</h1>
+<form action="/saveDoctor" method="get">
+    <input type="" name="family" placeholder="Введіть прізвище">
+    <input type="" name="name" placeholder="Введіть ім*я">
+    <input type="" name="department" placeholder="Введіть відділення">
+    <input type="submit" name="" placeholder="">
+</form>
+<p>Список лікарів - </p>
+<ul>
+    <li th:each="doctor:${allDoctors}">
+        <div>[[${doctor.id}]]</div>
+        <div>[[${doctor.family}]]</div>
+        <div>[[${doctor.name}]]</div>
+        <div>[[${doctor.department}]]</div>
+
+        <div>
+            <a th:href="@{'/doctor/'+${doctor.id}}">
+                <button>Деталі</button>
+            </a>
+            <a th:href="@{'/delete/'+${doctor.id}}">
+                <button>Видалити</button>
+            </a>
+        </div>
+    </li>
+</ul>
+</body>
+</html>

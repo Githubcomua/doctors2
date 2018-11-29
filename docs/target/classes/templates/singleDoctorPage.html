@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>[[${singleDoctor.id}]]</p>
+<p>[[${singleDoctor.family}]]</p>
+<p>[[${singleDoctor.name}]]</p>
+<!--<p>[[${singleDoctor.department}]]</p>-->
+<p th:text="${singleDoctor.department}"></p>
+
+<form action="/updateDoctor" method="post" >
+    <input type="hidden" name="id" placeholder="id" th:value="${singleDoctor.id}">
+    <input type="" name="family" placeholder="Прізвище" th:value="${singleDoctor.family}">
+    <input type="" name="name" placeholder="Ім*я" th:value="${singleDoctor.name}">
+    <input type="" name="department" placeholder="Відділення" th:value="${singleDoctor.department}">
+    <input type="submit" name="" placeholder="">
+</form>
+
+<!--<form action="/delete/{idOfDoctor}" method="get">-->
+    <!--<input type="submit" name="" placeholder="">-->
+<!--не срабатывает корректно) -->
+<!--</form>-->
+</body>
+</html>
